@@ -7,3 +7,6 @@ https://frankaemika.github.io/docs/franka_ros.html
 https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 
 https://docs.docker.com/engine/install/linux-postinstall/
+
+
+sudo docker exec -it d36d136b7045 bash

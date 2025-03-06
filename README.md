@@ -10,3 +10,25 @@ https://docs.docker.com/engine/install/linux-postinstall/
 
 
 sudo docker exec -it d36d136b7045 bash
+
+
+roslaunch franka_gazebo panda.launch x:=-0.5     world:=$(rospack find franka_gazebo)/world/stone.sdf     controller:=cartesian_impedance_example_controller     rviz:=true
+
+roslaunch franka_gazebo panda.launch x:=-0.5     world:=$(rospack find franka_gazebo)/world/stone.sdf     controller:=cartesian_impedance_example_controller interactive_marker:=false
+
+
+
+rostopic pub -r 10 /cartesian_impedance_example_controller/equilibrium_pose geometry_msgs/PoseStamped "header:
+  stamp: now
+  frame_id: 'base_link'
+pose:
+  position:
+    x: 0.0
+    y: 0.5
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0" &
+sleep 3 && kill $!
